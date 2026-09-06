@@ -1,0 +1,4 @@
+static/video1.mp4 filter=lfs diff=lfs merge=lfs -text
+static/.ipynb_checkpoints/video2-checkpoint.mp4 filter=lfs diff=lfs merge=lfs -text
+model/car_price_model.pkl filter=lfs diff=lfs merge=lfs -text
+static/video2.mp4 filter=lfs diff=lfs merge=lfs -text

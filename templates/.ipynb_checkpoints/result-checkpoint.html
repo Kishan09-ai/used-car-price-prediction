@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AutoPrice AI | Prediction Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     BACKGROUND VIDEO
+     ========================================================= -->
+
+<video class="video-background"
+       autoplay
+       muted
+       loop
+       playsinline>
+
+    <source
+        src="{{ url_for('static', filename='video2.mp4') }}"
+        type="video/mp4">
+
+</video>
+
+<div class="video-overlay"></div>
+
+
+
+<!-- =========================================================
+     NAVBAR
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <span class="logo-icon">🚘</span>
+
+        <span>AutoPrice <b>AI</b></span>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="/#predict">Predict Again</a>
+
+        <a href="/#team">Team</a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     RESULT HERO
+     ========================================================= -->
+
+<section class="result-page">
+
+
+    <div class="result-heading">
+
+        <div class="hero-badge">
+
+            🤖 AI PREDICTION COMPLETE
+
+        </div>
+
+
+        <h1>
+
+            Your Car's Estimated Value
+
+        </h1>
+
+
+        <p>
+
+            Our machine learning model has analyzed
+            your vehicle information.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN RESULT CARD
+         ===================================================== -->
+
+    <div class="result-container">
+
+
+        <!-- LEFT SIDE -->
+
+        <div class="result-card">
+
+
+            <div class="result-label">
+
+                ESTIMATED MARKET PRICE
+
+            </div>
+
+
+            <div class="price">
+
+                ₹{{ "{:,.0f}".format(price_inr) }}
+
+            </div>
+
+
+            <div class="price-lakh">
+
+                ₹{{ "{:,.2f}".format(prediction) }} Lakh
+
+            </div>
+
+
+            <!-- Category -->
+
+            <div class="category-box">
+
+                <span class="category-icon">
+
+                    {{ category_icon }}
+
+                </span>
+
+
+                <div>
+
+                    <small>PROPERTY CATEGORY</small>
+
+                    <strong>{{ category }}</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-divider"></div>
+
+
+            <!-- Model accuracy -->
+
+            <div class="model-info">
+
+
+                <div>
+
+                    <span>Model</span>
+
+                    <strong>Random Forest</strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>R² Score</span>
+
+                    <strong>90.96%</strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="result-image-card">
+
+
+            <img
+                src="{{ url_for('static', filename='photo3.jpg') }}"
+                alt="Car">
+
+            
+            <div class="image-caption">
+
+                <span>🚘</span>
+
+                AI Used Car Valuation
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CAR DETAILS
+         ===================================================== -->
+
+    <div class="details-section">
+
+
+        <div class="section-heading">
+
+            <div class="small-heading">
+
+                VEHICLE INFORMATION
+
+            </div>
+
+
+            <h2>
+
+                Submitted Car Details
+
+            </h2>
+
+        </div>
+
+
+
+        <div class="details-grid">
+
+
+            <div class="detail-item">
+
+                <span>Car Name</span>
+
+                <strong>{{ car_name }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Location</span>
+
+                <strong>{{ location }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Manufacturing Year</span>
+
+                <strong>{{ year }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Car Age</span>
+
+                <strong>{{ car_age }} Years</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Kilometers Driven</span>
+
+                <strong>
+                    {{ "{:,.0f}".format(kilometers) }} KM
+                </strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Fuel Type</span>
+
+                <strong>{{ fuel_type }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Transmission</span>
+
+                <strong>{{ transmission }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Owner Type</span>
+
+                <strong>{{ owner_type }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Mileage</span>
+
+                <strong>{{ mileage }} kmpl</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Engine</span>
+
+                <strong>{{ engine }} CC</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Power</span>
+
+                <strong>{{ power }} BHP</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Colour</span>
+
+                <strong>{{ colour }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Seats</span>
+
+                <strong>{{ seats }}</strong>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <span>Doors</span>
+
+                <strong>{{ doors }}</strong>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACTION BUTTONS
+         ===================================================== -->
+
+    <div class="result-actions">
+
+
+        <a href="/"
+           class="primary-btn">
+
+            🔄 Predict Another Car
+
+        </a>
+
+
+        <button
+            onclick="window.print()"
+            class="secondary-btn">
+
+            🖨 Print Result
+
+        </button>
+
+
+    </div>
+
+
+
+</section>
+
+
+
+<!-- =========================================================
+     TEAM SECTION
+     ========================================================= -->
+
+<section class="team-section"
+         id="team">
+
+
+    <div class="section-heading">
+
+        <div class="small-heading">
+
+            PROJECT TEAM
+
+        </div>
+
+
+        <h2>
+
+            Meet The Team
+
+        </h2>
+
+
+        <p>
+
+            The people behind AutoPrice AI
+
+        </p>
+
+    </div>
+
+
+
+    <div class="team-grid">
+
+
+        <!-- =================================================
+             KISHAN
+             ================================================= -->
+
+        <div class="team-card">
+
+            <div class="team-photo">
+
+                <img
+                    src="{{ url_for('static', filename='kishan.jpg') }}"
+                    alt="Kishan Kr Singh">
+
+            </div>
+
+
+            <h3>
+
+                Kishan Kr Singh
+
+            </h3>
+
+
+            <p>
+
+                Developer
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             AYUSH
+             ================================================= -->
+
+        <div class="team-card">
+
+            <div class="team-photo">
+
+                <img
+                    src="{{ url_for('static', filename='ayush.jpg') }}"
+                    alt="Ayush Vardhan">
+
+            </div>
+
+
+            <h3>
+
+                Ayush Vardhan
+
+            </h3>
+
+
+            <p>
+
+                Developer
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RAMESWAR
+             ================================================= -->
+
+        <div class="team-card">
+
+            <div class="team-photo">
+
+                <img
+                    src="{{ url_for('static', filename='rameswar.jpg') }}"
+                    alt="Rameswar Teli">
+
+            </div>
+
+
+            <h3>
+
+                Rameswar Teli
+
+            </h3>
+
+
+            <p>
+
+                Developer
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SHEETAL
+             ================================================= -->
+
+        <div class="team-card">
+
+            <div class="team-photo">
+
+                <img
+                    src="{{ url_for('static', filename='sheetal.jpg') }}"
+                    alt="Sheetal Mandal">
+
+            </div>
+
+
+            <h3>
+
+                Sheetal Mandal
+
+            </h3>
+
+
+            <p>
+
+                Developer
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="department-name">
+
+        <span>
+
+            DEPARTMENT OF
+
+        </span>
+
+
+        <strong>
+
+            ARTIFICIAL INTELLIGENCE & MACHINE LEARNING
+
+        </strong>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     DISCLAIMER
+     ========================================================= -->
+
+<div class="disclaimer">
+
+    ⚠️ <strong>Disclaimer:</strong>
+
+    This prediction is generated by a machine learning
+    model and should be considered an estimated market value.
+    Actual selling prices may vary depending on vehicle
+    condition, demand, location and other factors.
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer">
+
+
+    <div class="footer-logo">
+
+        🚘 AutoPrice AI
+
+    </div>
+
+
+    <p>
+
+        Used Car Price Prediction System
+
+    </p>
+
+
+    <div class="developer-text">
+
+        Developed by
+
+        <strong>
+
+            Kishan Kr Singh • Ayush Vardhan •
+            Rameswar Teli • Sheetal Mandal
+
+        </strong>
+
+    </div>
+
+
+    <div class="footer-department">
+
+        Department of Artificial Intelligence &
+        Machine Learning
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 AutoPrice AI. All Rights Reserved.
+
+    </div>
+
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1563 @@
+/* =========================================================
+   AUTOPRICE AI
+   USED CAR PRICE PREDICTION SYSTEM
+   COMPLETE STYLE.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   VIDEO BACKGROUND
+   IMPORTANT:
+   VIDEO SETTINGS ARE NOT CHANGED
+   ========================================================= */
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -10;
+}
+
+.video-overlay {
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.70),
+            rgba(0, 0, 0, 0.82)
+        );
+
+    z-index: -9;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.logo-icon {
+    font-size: 30px;
+}
+
+.logo b {
+    font-weight: 800;
+}
+
+.nav-links {
+    display: flex;
+
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: rgba(255, 255, 255, 0.80);
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 7%;
+
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 1000px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 85px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+
+    font-weight: 800;
+}
+
+.hero p {
+    max-width: 750px;
+
+    margin: 0 auto 35px;
+
+    color: rgba(255, 255, 255, 0.70);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   HERO IMAGE
+   THIS WAS MISSING - photo1.jpg had no size
+   constraints at all, so it rendered at its native
+   pixel size and looked enlarged.
+   --------------------------------------------------------- */
+
+.hero-image {
+    width: 100%;
+
+    max-width: 380px;
+
+    margin: 40px auto 0;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+}
+
+.hero-image img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 0 28px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: #ffffff;
+
+    color: #000000;
+
+    border: 1px solid #ffffff;
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(255, 255, 255, 0.18);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 900px;
+
+    margin: 40px auto 0;
+
+    gap: 20px;
+}
+
+.stat-card {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(10px);
+}
+
+.stat-card h3 {
+    font-size: 30px;
+
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: rgba(255, 255, 255, 0.60);
+}
+
+
+/* =========================================================
+   PREDICTION SECTION
+   ========================================================= */
+
+.predict-section {
+    padding: 100px 7%;
+
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.small-heading {
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+    opacity: 0.65;
+}
+
+.section-heading h2 {
+    font-size: clamp(32px, 5vw, 50px);
+
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: rgba(255, 255, 255, 0.60);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.prediction-form {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 16px;
+
+    border-radius: 11px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    outline: none;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    color: #ffffff;
+
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: rgba(255, 255, 255, 0.55);
+
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.form-group select option {
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.form-submit {
+    grid-column: 1 / -1;
+
+    margin-top: 15px;
+
+    text-align: center;
+}
+
+.form-submit button {
+    min-width: 280px;
+}
+
+
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
+.features-section {
+    padding: 100px 7%;
+
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.features-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.feature-card {
+    padding: 35px 28px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+
+    background: rgba(255, 255, 255, 0.09);
+}
+
+.feature-icon {
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 20px;
+
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.60);
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* ---------------------------------------------------------
+   FEATURES IMAGE
+   THIS WAS ALSO MISSING - photo2.jpg had no size
+   constraints, so it rendered at native size.
+   --------------------------------------------------------- */
+
+.features-container {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 40px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+.feature-image {
+    flex: 1 1 380px;
+
+    max-width: 460px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+}
+
+.feature-image img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.feature-cards {
+    flex: 1 1 480px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   CAR IMAGE SHOWCASE
+   THIS IS THE IMPORTANT IMAGE FIX
+   ========================================================= */
+
+.car-showcase {
+    padding: 100px 7%;
+
+    background: rgba(0, 0, 0, 0.70);
+}
+
+.car-image-grid {
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ---------------------------------------------------------
+   CAR IMAGE CARD
+   --------------------------------------------------------- */
+
+.car-image-card {
+    width: 100%;
+
+    height: 350px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #080808;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   CAR PHOTO
+
+   IMPORTANT:
+   - width: auto
+   - height: auto
+   - max-width: 100%
+   - max-height: 100%
+   - object-fit: contain
+
+   This prevents the original image from being
+   stretched, cropped or zoomed.
+   --------------------------------------------------------- */
+
+.car-image-card img {
+    width: auto !important;
+
+    height: auto !important;
+
+    max-width: 100% !important;
+
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+
+    object-position: center center !important;
+
+    display: block;
+
+    margin: auto;
+
+    transform: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   NEVER ZOOM CAR PHOTO ON HOVER
+   --------------------------------------------------------- */
+
+.car-image-card:hover img {
+    transform: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   CAR IMAGE CAPTION
+   --------------------------------------------------------- */
+
+.car-image-caption {
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    padding: 22px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.90)
+        );
+
+    font-weight: 700;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TEAM SECTION
+   ========================================================= */
+
+.team-section {
+    padding: 100px 7%;
+
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.team-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.team-card {
+    padding: 25px 20px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.11);
+
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, 0.10);
+}
+
+
+/* ---------------------------------------------------------
+   TEAM PHOTOS
+   KEEPING YOUR CURRENT TEAM PHOTO SECTION
+   --------------------------------------------------------- */
+
+.team-photo {
+    width: 180px;
+
+    height: 180px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #111111;
+
+    border: 3px solid rgba(255, 255, 255, 0.15);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.team-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    background: #111111;
+
+    transform: none !important;
+}
+
+.team-card:hover .team-photo img {
+    transform: none !important;
+}
+
+.team-card h3 {
+    font-size: 18px;
+
+    margin-bottom: 8px;
+}
+
+.team-card p {
+    font-size: 13px;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   DEPARTMENT
+   ========================================================= */
+
+.department-name {
+    max-width: 800px;
+
+    margin: 60px auto 0;
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.department-name span {
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    opacity: 0.5;
+
+    margin-bottom: 8px;
+}
+
+.department-name strong {
+    font-size: 16px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   RESULT PAGE
+   ========================================================= */
+
+.result-page {
+    min-height: 100vh;
+
+    padding: 80px 7% 100px;
+
+    background: rgba(0, 0, 0, 0.60);
+}
+
+.result-heading {
+    text-align: center;
+
+    margin-bottom: 55px;
+}
+
+.result-heading h1 {
+    font-size: clamp(38px, 5vw, 60px);
+
+    margin: 20px 0 15px;
+}
+
+.result-heading p {
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   RESULT CONTAINER
+   ========================================================= */
+
+.result-container {
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 30px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================================
+   RESULT CARD
+   ========================================================= */
+
+.result-card {
+    padding: 45px;
+
+    border-radius: 25px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(15px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.result-label {
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: 700;
+
+    opacity: 0.55;
+
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: clamp(42px, 6vw, 70px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 8px;
+}
+
+.price-lakh {
+    font-size: 18px;
+
+    color: rgba(255, 255, 255, 0.60);
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
+
+.category-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.category-icon {
+    font-size: 35px;
+}
+
+.category-box small {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.50;
+
+    margin-bottom: 5px;
+}
+
+.category-box strong {
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   RESULT DIVIDER
+   ========================================================= */
+
+.result-divider {
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    margin: 30px 0;
+}
+
+
+/* =========================================================
+   MODEL INFO
+   ========================================================= */
+
+.model-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+}
+
+.model-info div {
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.model-info span {
+    display: block;
+
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.50);
+
+    margin-bottom: 7px;
+}
+
+.model-info strong {
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   RESULT PAGE IMAGE
+   IMPORTANT IMAGE FIX
+   ========================================================= */
+
+.result-image-card {
+    width: 100%;
+
+    min-height: 500px;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    background: #080808;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* ---------------------------------------------------------
+   RESULT PHOTO
+   --------------------------------------------------------- */
+
+.result-image-card img {
+    width: auto !important;
+
+    height: auto !important;
+
+    max-width: 100% !important;
+
+    max-height: 100% !important;
+
+    object-fit: contain !important;
+
+    object-position: center center !important;
+
+    display: block;
+
+    margin: auto;
+
+    transform: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   NO RESULT IMAGE ZOOM
+   --------------------------------------------------------- */
+
+.result-image-card:hover img {
+    transform: none !important;
+}
+
+
+/* =========================================================
+   IMAGE CAPTION
+   ========================================================= */
+
+.image-caption {
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0, 0, 0, 0.90)
+        );
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   DETAILS SECTION
+   ========================================================= */
+
+.details-section {
+    max-width: 1150px;
+
+    margin: 90px auto 0;
+}
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.detail-item {
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.detail-item span {
+    font-size: 13px;
+
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.detail-item strong {
+    font-size: 14px;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   RESULT ACTIONS
+   ========================================================= */
+
+.result-actions {
+    max-width: 1150px;
+
+    margin: 45px auto 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.disclaimer {
+    max-width: 1000px;
+
+    margin: 0 auto 60px;
+
+    padding: 20px 25px;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    color: rgba(255, 255, 255, 0.60);
+
+    text-align: center;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 60px 7% 35px;
+
+    text-align: center;
+
+    background: #030303;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.footer-logo {
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+}
+
+.footer > p {
+    color: rgba(255, 255, 255, 0.55);
+
+    margin-bottom: 25px;
+}
+
+.developer-text {
+    font-size: 13px;
+
+    color: rgba(255, 255, 255, 0.50);
+
+    line-height: 1.8;
+}
+
+.developer-text strong {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    margin-top: 5px;
+}
+
+.footer-department {
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    color: rgba(255, 255, 255, 0.40);
+}
+
+.copyright {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.30);
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.result-heading,
+.result-card,
+.result-image-card {
+    animation: fadeUp 0.8s ease;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #444444;
+
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .car-image-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .result-container {
+        grid-template-columns: 1fr;
+    }
+
+    .result-image-card {
+        min-height: 450px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 70px;
+
+        padding: 15px 5%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 70px 5%;
+
+        min-height: 80vh;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .predict-section,
+    .features-section,
+    .car-showcase,
+    .team-section {
+        padding: 70px 5%;
+    }
+
+    .form-container {
+        padding: 25px 18px;
+    }
+
+    .prediction-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width,
+    .form-submit {
+        grid-column: auto;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .car-image-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .car-image-card {
+        height: 300px;
+    }
+
+    .car-image-card img {
+        max-width: 100% !important;
+
+        max-height: 100% !important;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 15px;
+    }
+
+    .team-card {
+        padding: 20px 10px;
+    }
+
+    .team-photo {
+        width: 130px;
+
+        height: 130px;
+    }
+
+    .team-card h3 {
+        font-size: 14px;
+    }
+
+    .result-page {
+        padding: 60px 5% 80px;
+    }
+
+    .result-card {
+        padding: 30px 22px;
+    }
+
+    .result-image-card {
+        min-height: 350px;
+    }
+
+    .result-image-card img {
+        max-width: 100% !important;
+
+        max-height: 100% !important;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-item {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .detail-item strong {
+        text-align: left;
+    }
+
+    .model-info {
+        grid-template-columns: 1fr;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .result-actions a,
+    .result-actions button {
+        width: 100%;
+    }
+
+    .department-name strong {
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print {
+
+    .video-background,
+    .video-overlay,
+    .navbar,
+    .result-actions,
+    .team-section,
+    .footer {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff;
+
+        color: #000000;
+    }
+
+    .result-page {
+        background: #ffffff;
+    }
+
+    .result-card,
+    .result-image-card,
+    .detail-item {
+        border: 1px solid #cccccc;
+
+        background: #ffffff;
+
+        color: #000000;
+    }
+}
